@@ -1,0 +1,9 @@
+# One-click deploy on Render (https://render.com). See README.
+services:
+  - type: web
+    name: four-in-a-row
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health

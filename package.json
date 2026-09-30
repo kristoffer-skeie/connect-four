@@ -1,0 +1,19 @@
+{
+  "name": "four-in-a-row",
+  "version": "1.0.0",
+  "description": "Real-time online four-in-a-row game. Host a game, share a code, and play a friend in the browser.",
+  "type": "module",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "ws": "^8.18.0"
+  }
+}

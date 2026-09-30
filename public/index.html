@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Play four in a row with a friend online. Host a game, share the code, and play in real time.">
+  <title>Four in a Row: play a friend online</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%23FF6F59'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main>
+    <!-- ============ HOME ============ -->
+    <section id="screen-home" class="screen home">
+      <header class="hero">
+        <div class="hero-discs" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <h1>Four in a Row</h1>
+        <p class="lede">Play a friend in real time. One of you hosts a game, the other joins with its four-letter code.</p>
+      </header>
+
+      <div class="home-actions">
+        <label class="field">
+          <span class="field-label">Your name</span>
+          <input id="name-input" maxlength="16" autocomplete="nickname" placeholder="Player">
+        </label>
+
+        <button id="host-btn" class="btn primary" type="button">Host a game</button>
+
+        <p class="divider"><span>or join a friend's game</span></p>
+
+        <form id="join-form" class="join-form">
+          <input id="code-input" class="code-input" maxlength="4" placeholder="Code"
+                 aria-label="Game code" autocomplete="off" spellcheck="false" autocapitalize="characters">
+          <button class="btn secondary" type="submit">Join game</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ LOBBY ============ -->
+    <section id="screen-lobby" class="screen lobby" hidden>
+      <h2>Your game code</h2>
+      <div id="code-tiles" class="code-tiles" aria-live="polite"></div>
+      <p class="lede">Send the code or the invite link to a friend. The game starts as soon as they join.</p>
+      <div class="button-row">
+        <button id="copy-link-btn" class="btn primary" type="button">Copy invite link</button>
+        <button id="copy-code-btn" class="btn secondary" type="button">Copy code</button>
+      </div>
+      <p class="waiting"><span class="waiting-dot" aria-hidden="true"></span>Waiting for your friend to join</p>
+      <button id="cancel-btn" class="btn text" type="button">Cancel game</button>
+    </section>
+
+    <!-- ============ GAME ============ -->
+    <section id="screen-game" class="screen game" hidden>
+      <div class="game-layout">
+        <article class="player-card" id="player-1" data-seat="1">
+          <span class="chip" aria-hidden="true"></span>
+          <div class="player-text">
+            <p class="player-name"></p>
+            <p class="player-meta"></p>
+          </div>
+          <p class="player-score" aria-label="Score"></p>
+        </article>
+
+        <div class="board-area">
+          <p id="status" class="status" aria-live="polite"></p>
+          <div id="board" class="board"></div>
+          <div class="game-actions">
+            <button id="rematch-btn" class="btn primary" type="button" hidden>Play again</button>
+            <button id="leave-btn" class="btn text" type="button">Leave game</button>
+          </div>
+        </div>
+
+        <article class="player-card" id="player-2" data-seat="2">
+          <span class="chip" aria-hidden="true"></span>
+          <div class="player-text">
+            <p class="player-name"></p>
+            <p class="player-meta"></p>
+          </div>
+          <p class="player-score" aria-label="Score"></p>
+        </article>
+      </div>
+      <p class="room-tag">Game code <strong id="room-code"></strong><span class="key-hint">. Press keys 1 to 7 to drop a disc.</span></p>
+    </section>
+  </main>
+
+  <div id="banner" class="banner" role="alert" hidden>Connection lost. Reconnecting…</div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
