@@ -1,7 +1,7 @@
 /**
- * Wraps the browser WebSocket with two extras:
- *  - messages sent while offline are queued and flushed on reconnect
- *  - the socket reconnects automatically with exponential backoff
+ Wraps the browser WebSocket with two extras:
+ - messages sent while offline are queued and flushed on reconnect
+ - the socket reconnects automatically with exponential backoff
  */
 export class Connection {
   constructor({ onMessage, onOpen, onClose }) {

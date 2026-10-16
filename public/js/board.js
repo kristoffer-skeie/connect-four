@@ -2,11 +2,11 @@ const ROWS = 6;
 const COLS = 7;
 
 /**
- * Builds the board once (7 column buttons x 6 slots) and returns an
- * update() function that syncs it with the server state. Updating
- * existing elements instead of rebuilding them lets only the newest
- * disc play its drop animation.
- */
+ Builds the board (7 column buttons x 6 slots) and returns an
+ update() function that syncs it with the server state. Updating
+ existing elements instead of rebuilding them lets only the newest
+ disc play its drop animation.
+ **/
 export function createBoard(root, onDrop) {
   const columns = [];
   const slots = Array.from({ length: ROWS }, () => []);
