@@ -72,15 +72,8 @@ Free instances go to sleep when idle, so the first visit after a while can take 
 ├── test/
 │   ├── game.test.js
 │   └── rooms.test.js
-├── docs/ARCHITECTURE.md
+├── ARCHITECTURE.md
 └── render.yaml
 ```
 
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for how the pieces fit together, including the message protocol.
-
-## Ideas for extending it
-
-- Spectator mode for extra people who join a full room
-- An in-game chat or emoji reactions
-- A computer opponent using minimax with alpha-beta pruning
-- Persisting match history in a database such as SQLite or PostgreSQL
